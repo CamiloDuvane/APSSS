@@ -44,7 +44,7 @@ function previewDocument() {
 <div class="invoice-box" id="invoice-box">
     <div class="header">
         <div class="header-left">
-            <img src="/a/c173b812-c643-487a-b561-6f97b7f09874" alt="AS Empreendimentos Logo" class="logo">
+            <img src="APSSS.jpeg" alt="APSSS Logo" class="logo">
         </div>
         <div class="header-right">
             <p>Bairro Guava, Rua Principal do Guava Q.23 Parcela 18, Maputo</p>
