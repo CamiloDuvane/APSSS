@@ -1,0 +1,102 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cotação CWD</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Cotação</h1>
+
+        <div class="section" id="form-section">
+            <h2>Preencha os Detalhes da Cotação</h2>
+            <p>Por favor, preencha os campos abaixo para gerar a sua cotação.</p>
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="companyName">Nome da Empresa (para o nome do documento):</label>
+                    <input type="text" id="companyName" placeholder="Ex: APSSS, EI">
+                </div>
+                <div class="form-group">
+                    <label for="containerNumber">Número do Contentor:</label>
+                    <input type="text" id="containerNumber" placeholder="Ex: CAAU9374171">
+                </div>
+                <div class="form-group">
+                    <label for="consignee">CONSIGNATÁRIO:</label>
+                    <input type="text" id="consignee" placeholder="Ex: Nome da empresa">
+                </div>
+                <div class="form-group">
+                    <label for="contact">CONTACTO:</label>
+                    <input type="text" id="contact" placeholder="Ex: 841234567">
+                </div>
+                <div class="form-group">
+                    <label for="cobDate">AVISO DE COBRANÇA DATA:</label>
+                    <input type="date" id="cobDate">
+                </div>
+                <div class="form-group">
+                    <label for="arrivalDate">PREVISÃO DE CHEGADA:</label>
+                    <input type="date" id="arrivalDate">
+                </div>
+                <div class="form-group">
+                    <label for="paymentDueDate">ÚLTIMO DIA DE PAGAMENTO:</label>
+                    <input type="date" id="paymentDueDate">
+                </div>
+                <div class="form-group full-width">
+                     <label for="merchandiseDesc">DESCRIÇÃO DA MERCADORIA:</label>
+                    <textarea id="merchandiseDesc" placeholder="Ex: Mercadoria diversa"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="volumeQty">QUANTIDADE DE VOLUMES:</label>
+                    <input type="text" id="volumeQty" placeholder="Ex: 5">
+                </div>
+                <div class="form-group">
+                    <label for="totalCBMs">TOTAL DE CBM'S:</label>
+                    <input type="text" id="totalCBMs" placeholder="Ex: 0.2">
+                </div>
+                <div class="form-group">
+                    <label for="usdMzmExchange">CÂMBIO USD/MZM:</label>
+                    <input type="text" id="usdMzmExchange" placeholder="Ex: 67">
+                </div>
+                <div class="form-group">
+                    <label for="maritimeFreight">FRETE MARÍTIMO (00USD/CBM):</label>
+                    <input type="number" id="maritimeFreight" placeholder="Ex: 50.00" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="importExpenses">DESPESAS DE IMPORTAÇÃO:</label>
+                    <input type="number" id="importExpenses" placeholder="Calculado automaticamente" step="0.01" readonly>
+                </div>
+                 <div class="form-group">
+                    <label for="totalDeliveryMZM">TOTAL ENTREGA MZM (Min 750,00MT):</label>
+                    <input type="number" id="totalDeliveryMZM" placeholder="Ex: 750.00" step="0.01">
+                </div>
+                 <div class="form-group">
+                    <label for="totalMZM">TOTAL EM MZM (MIN 0,1 CBM):</label>
+                    <input type="number" id="totalMZM" placeholder="Ex: 3050.00" step="0.01">
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button onclick="previewDocument()">Pré-visualizar Documento</button>
+                <button onclick="resetFields()" class="secondary">Limpar Campos</button>
+            </div>
+        </div>
+
+        <div class="section" id="preview-section" style="display: none;">
+            <h2>Pré-visualização do Documento</h2>
+            <p>Abaixo está como o seu documento será gerado. Clique em 'Editar' para voltar ou 'Baixar PDF' para salvar.</p>
+            <div id="previewArea">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+            <div class="button-group">
+                <button onclick="editDocument()">Editar</button>
+                <button onclick="downloadPDF()">Baixar PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #007bff;
+    --background-color: #f4f4f4;
+    --container-bg: #fff;
+    --text-color: #333;
+    --border-color: #ddd;
+    --shadow-color: rgba(0,0,0,0.1);
+    --hover-color: #0056b3;
+    --secondary-button-bg: #6c757d;
+    --secondary-button-hover: #5a6268;
+}
+
+/* Add this for better PDF rendering */
+body.print-pdf-mode #previewArea {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+body.print-pdf-mode .invoice-box {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100%;
+    /* To ensure consistent rendering, we'll control width via JS before capture */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: var(--container-bg);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
+
+.section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+.section:not(:last-child) {
+     border-bottom: 2px solid #eee;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 0;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    background: linear-gradient(135deg, var(--secondary-color), var(--hover-color));
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button.secondary {
+    background: linear-gradient(135deg, var(--secondary-button-bg), var(--secondary-button-hover));
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+button.secondary:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#previewArea {
+    border: 2px solid var(--border-color);
+    padding: 25px;
+    background: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px var(--shadow-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* NEW INVOICE STYLES */
+.invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    font-size: 11px; /* Matching the document font size */
+    line-height: 1.6;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+.invoice-box p {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+.header-left .logo {
+    width: 200px;
+}
+
+.header-right {
+    text-align: right;
+    font-weight: bold;
+}
+
+.header-right p {
+    margin: 0;
+    line-height: 1.4; /* Added for closer lines */
+}
+
+.china-office {
+    margin-bottom: 10px;
+}
+
+.china-office p {
+    line-height: 1.4;
+}
+
+.separator-line {
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 15px 0;
+}
+
+.title-section {
+    text-align: center;
+    position: relative;
+    margin: 20px 0 30px 0;
+}
+
+.title-section .line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #000;
+}
+
+.title-section .line:first-of-type {
+    top: -5px;
+}
+
+.title-section .line:last-of-type {
+    bottom: -5px;
+}
+
+.title-section .title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    background: #fff;
+    display: inline-block;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+.title-section .date-info {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+}
+
+.details-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.details-left {
+    flex-basis: 60%;
+}
+.details-right {
+    text-align: right;
+    flex-basis: 40%;
+}
+.details-left p, .details-right p {
+    margin-bottom: 5px;
+}
+
+.financial-section {
+    margin-bottom: 10px;
+    padding-left: 20px; /* Indent this section slightly */
+}
+
+.financial-row {
+    display: flex;
+    justify-content: flex-start;
+    padding: 2px 0;
+    position: relative;
+}
+
+.financial-label {
+    flex-basis: 350px;
+    font-weight: bold;
+}
+
+.financial-value {
+    flex-basis: 150px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.financial-total {
+    flex-basis: 150px;
+    text-align: left;
+    padding-left: 20px;
+}
+.total-row .financial-value{
+    font-weight: bold;
+}
+
+.termos-condicoes {
+    margin-top: 20px;
+}
+
+.termos-condicoes h3 {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.termos-condicoes ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 10px;
+}
+.termos-condicoes li {
+    margin-bottom: 4px;
+}
+
+.dados-bancarios {
+    margin-top: 15px;
+}
+.dados-bancarios p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dados-bancarios table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+.dados-bancarios th, .dados-bancarios td {
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+}
+.dados-bancarios th {
+    font-weight: bold;
+    background-color: #e9ecef;
+}
+
+.header-separator {
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 10px 0 15px 0; /* Adjusted margins */
+}
+
+/* Remove old preview styles */
+.preview-document, .preview-header, .preview-section, .banco-info, .banco-card {
+    display: none;
+}
