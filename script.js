@@ -129,13 +129,13 @@ function previewDocument() {
             <li>Em caso de carga danificada, a mesma será reportada ao Agente na China, de modo que se avalie se o dano foi durante o transporte ou enchimento. Bem como a decisão da respectiva reposição.</li>
             <li>Ficaremos com a carga/Mercadoria ate 30 dias apos a descarga do contentor.</li>
             <li>O não Pagamento e levantamento da carga/mercadoria em 30 dias, da direito a perda da mesma.</li>
-            <li>Os pagamentos devem ser efectuados nas contas da Alice Palmira Samuel Sindane Sitoe conforme os dados abaixo e enviar o respectivo comprovativo por WhatsApp para os Nr:+258 840234121/833834785</li>
+            <li>Os pagamentos devem ser efectuados nas contas da KIASSE LOGISTICA SU LDA conforme os dados abaixo e enviar o respectivo comprovativo por WhatsApp para os Nr:+258 840234121/833834785</li>
         </ol>
     </div>
      <hr class="separator-line">
 
     <div class="dados-bancarios">
-        <p><strong>Dados Bancarios - Alice Palmira Samuel Sindane Sitoe</strong></p>
+        <p><strong>Dados Bancarios - KIASSE LOGISTICA SU LDA</strong></p>
         <table>
             <thead>
                 <tr>
@@ -147,13 +147,13 @@ function previewDocument() {
             <tbody>
                 <tr>
                     <td>BCI</td>
-                    <td>2632599510002</td>
-                    <td>000800002632599510277</td>
+                    <td>34446203610001</td>
+                    <td>000800004446203610128</td>
                 </tr>
                 <tr>
                     <td>M.BIM</td>
-                    <td>121545851</td>
-                    <td>000100000012154585157</td>
+                    <td>‎1247902285</td>
+                    <td>000100000124790228557</td>
                 </tr>
                 <tr>
                     <td>Standardbank</td>
