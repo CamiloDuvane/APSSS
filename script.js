@@ -155,11 +155,6 @@ function previewDocument() {
                     <td>‎1247902285</td>
                     <td>000100000124790228557</td>
                 </tr>
-                <tr>
-                    <td>Standardbank</td>
-                    <td>10709288741009</td>
-                    <td>000301070928874100951</td>
-                </tr>
             </tbody>
         </table>
     </div>
